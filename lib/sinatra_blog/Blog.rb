@@ -1,29 +1,35 @@
 require 'date'
 
 class Blog
-  attr_accessor :container
-  def initialize ()
+  attr_accessor :container, :blog_name
+  def initialize (blog_name = "Nikos' blog!")
     @container = []
+    @blog_name = blog_name
   end
-  def add_post(title, date = DateTime.now, text, type)
-   	save_post(Post.new(title, date, text, type))
+  def add_post(title,text, author, cat,date = DateTime.now, type = false)
+    save_post(Post.new(title, text, author, cat,date, type))
   end
   def save_post(post)
     @container << post
+    latest_post()
   end
-
-  def create_front_page
-    @container.sort do |post1, post2|
-      # puts post1.date
-      # puts post2.date
+  def latest_post
+  	@container.sort do |post1, post2|
       post2.date <=> post1.date
     end
   end
+  # def create_front_page
+  #   @container.sort do |post1, post2|
+  #     post2.date <=> post1.date
+  #   end
+  # end
 
   # def populate_page
 
   # end
-
+  def show_posts
+  	@container
+  end
   def publish_front_page
     if (@container.size == 0)
       puts " There are no posts here yet. It´s time to post something new!!"
@@ -46,12 +52,14 @@ end
 
 
 class Post
-  attr_accessor :title, :text
+  attr_accessor :title, :text, :author, :cat
   attr_reader :date, :type
-  def initialize ( title, date, text, type = false)
+  def initialize (title,text, author, cat, date = DateTime.now, type = false)
     @title = title
     @date = date
     @text = text
     @type = type
+    @author = author
+    @cat = cat
   end
 end

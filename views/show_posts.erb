@@ -1,0 +1,8 @@
+<div class="post-list">
+<ul>
+<% @posts.each_with_index do |post,index| %>
+  <li><p><a href="/posts/<%= index %>"><%= post.title %></a></p></li>
+  	<ul><li>by <%= post.author %> - <%= post.cat %> - (<%= post.date %>)</li></ul>
+<% end %>
+</ul>
+</div>

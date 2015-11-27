@@ -16,5 +16,12 @@ describe "BlogTest" do
       array_posts = blog1.container
       expect(array_posts.count).to eq(2)
     end
+    it "sort post by date" do
+      blog1 = Blog.new()
+      blog1.add_post("How to build a Blog", DateTime.now, "Hola0", false)
+      blog1.add_post("How to build a Dog", DateTime.now, "Hola1", false)
+      array_posts = blog1.latest_post
+      expect(array_posts.count).to eq(2)
+    end
   end
 end
