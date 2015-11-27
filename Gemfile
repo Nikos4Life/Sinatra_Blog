@@ -4,4 +4,9 @@ source 'https://rubygems.org'
 gemspec
 gem "sinatra"
 gem "sinatra-contrib"
-gem "pry"
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'pry'
+end
