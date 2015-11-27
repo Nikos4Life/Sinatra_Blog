@@ -1,7 +1,15 @@
 <form action="/send_post" method="POST">
+	<div class="form-group">
+	<label for="PostTitlelabel">Post Title</label>
 	<input type="text" name="post_title" placeholder="Post Title">
-	<input type="text" name="post_text" placeholder="Post Text">
+	<label for="PostTextlabel">Write your post</label>
+	<textarea type="text" rows="3" name="post_text" placeholder="Post Text"></textarea>
+	</div>
+	<div class="form-group">
 	<input type="text" name="post_author" placeholder="Author">
 	<input type="text" name="post_cat" placeholder="Post Category">
-	<button type="submit" name="send_post">Send Post</button>
+	</div>
+	<div class="form-group">
+	<button type="submit" class="btn btn-default" name="send_post">Send Post</button>
+	</div>
 </form>
